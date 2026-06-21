@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="transition.js"></script>
+  <title>Compétences — Antonin Schweitzer</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html,body{overflow-x:hidden;}
+    body{font-family:'Source Sans 3',sans-serif;background:linear-gradient(rgba(244,239,229,.66),rgba(244,239,229,.66)),url('assets/naval-bg.png') center top/cover fixed no-repeat,#F4EFE5;color:#0C1B2B;-webkit-font-smoothing:antialiased;}
+    a{text-decoration:none;color:inherit;}
+    .nl{color:#9DAFBE;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
+    .nl:hover,.nl.active{color:#fff;border-bottom-color:#C9963A;}
+    .sc{transition:transform .2s,box-shadow .2s;}.sc:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(12,27,43,.09) !important;}
+    @media(max-width:1100px){.sk5{grid-template-columns:repeat(2,1fr) !important;}.sk6{grid-template-columns:repeat(3,1fr) !important;}}
+    @media(max-width:960px){.nc{display:none !important;}.maingrid{grid-template-columns:1fr !important;}.sk5{grid-template-columns:repeat(2,1fr) !important;}.sk6{grid-template-columns:repeat(2,1fr) !important;}}
+    @media(max-width:600px){.pad{padding:48px 24px 36px !important;}.sk5{grid-template-columns:1fr !important;}.sk6{grid-template-columns:1fr !important;}}
+    .sc,.rc{position:relative;isolation:isolate;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);filter:drop-shadow(0 8px 18px rgba(12,27,43,.08));}
+    .sc::before,.rc::before{content:"";position:absolute;inset:5.5px;z-index:0;background:#C9963A;clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);}
+    .sc::after,.rc::after{content:"";position:absolute;inset:7px;z-index:0;background:var(--ofc,#fff);clip-path:polygon(9px 0,calc(100% - 9px) 0,100% 9px,100% calc(100% - 9px),calc(100% - 9px) 100%,9px 100%,0 calc(100% - 9px),0 9px);}
+    .sc>*,.rc>*{position:relative;z-index:1;}
+    /* ---- Lightbox carte de compétences ---- */
+    #carte-modal{display:none;}
+    #carte-modal:target{display:flex;}
+    #carte-modal:target ~ * .fiche-hint{opacity:1;}
+  </style>
+</helmet>
+
+<!-- NAV -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:200;background:#0C1B2B;height:64px;display:flex;align-items:center;padding:0 40px;gap:0;">
+  <a href="index.html" style="display:flex;align-items:center;gap:13px;flex-shrink:0;"><svg width="36" height="42" viewBox="0 0 36 42" fill="none"><path d="M18 1 L33.5 10 L33.5 32 L18 41 L2.5 32 L2.5 10 Z" stroke="#C9963A" stroke-width="1.4" fill="none"/><circle cx="18" cy="13.5" r="3.2" stroke="#C9963A" stroke-width="1.1" fill="none"/><line x1="18" y1="16.7" x2="18" y2="29.5" stroke="#C9963A" stroke-width="1.1"/><line x1="12.5" y1="20" x2="23.5" y2="20" stroke="#C9963A" stroke-width="1.1"/><path d="M12.5 29.5 Q18 32.5 23.5 29.5" stroke="#C9963A" stroke-width="1.1" fill="none"/><path d="M12.5 29.5 L10.5 27" stroke="#C9963A" stroke-width="1.1"/><path d="M23.5 29.5 L25.5 27" stroke="#C9963A" stroke-width="1.1"/></svg><div><div style="font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:14px;letter-spacing:.05em;line-height:1.2;">ANTONIN SCHWEITZER</div><div style="color:#C9963A;font-size:8.5px;letter-spacing:.25em;font-weight:600;line-height:1;">PORTFOLIO</div></div></a>
+  <div class="nc" style="display:flex;align-items:center;gap:15px;margin:0 auto;">
+    <a href="index.html" class="nl">ACCUEIL</a>
+    <a href="apropos.dc.html" class="nl">À PROPOS</a>
+    <a href="experiences.dc.html" class="nl">EXPÉRIENCES &amp; PROJETS</a>
+    <a href="competences.dc.html" class="nl active">COMPÉTENCES</a>
+    <a href="parcours.dc.html" class="nl">PARCOURS</a>
+    <a href="contact.dc.html" class="nl">CONTACT</a>
+  </div>
+  <a href="cv.dc.html" style="display:flex;align-items:center;gap:7px;border:1.5px solid #C9963A;color:#fff;padding:8px 18px;font-size:10.5px;letter-spacing:.18em;font-weight:700;margin-left:auto;flex-shrink:0;transition:background .2s;">CV <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+</nav>
+
+<main style="padding-top:64px;">
+
+  <!-- PAGE HEADER -->
+  <section class="pad" style="padding:32px 60px 28px;position:relative;overflow:hidden;">
+    <svg style="position:absolute;top:0;right:60px;opacity:0.055;pointer-events:none;" width="420" height="260" viewBox="0 0 520 310" fill="none"><g stroke="#0C1B2B" stroke-width="0.85"><path d="M48 235 Q155 214 260 208 Q365 214 472 235 L490 258 Q260 280 30 258 Z"/><rect x="168" y="170" width="184" height="40"/><rect x="192" y="136" width="136" height="36"/><rect x="216" y="106" width="88" height="32"/><line x1="260" y1="106" x2="260" y2="30"/><line x1="260" y1="58" x2="218" y2="70"/><line x1="260" y1="58" x2="302" y2="70"/><path d="M472 235 L498 214 L508 195 L490 172 L460 164"/><path d="M48 235 L22 214 L12 195 L30 172 L60 164"/><circle cx="106" cy="224" r="5"/><circle cx="170" cy="219" r="5"/><circle cx="358" cy="219" r="5"/><circle cx="422" cy="224" r="5"/><line x1="30" y1="258" x2="490" y2="258" stroke-dasharray="9,5"/><line x1="148" y1="172" x2="148" y2="268" stroke-dasharray="2,6" opacity="0.5"/><line x1="260" y1="172" x2="260" y2="268" stroke-dasharray="2,6" opacity="0.5"/><line x1="372" y1="172" x2="372" y2="268" stroke-dasharray="2,6" opacity="0.5"/></g></svg>
+    <div style="max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;">
+      <div>
+        <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#C9963A;font-weight:600;margin-bottom:5px;">PORTFOLIO · COMPÉTENCES</div>
+        <h1 style="font-family:'Playfair Display',serif;font-weight:700;font-size:64px;color:#0C1B2B;line-height:1.0;margin-bottom:14px;">Compétences</h1>
+        <p style="font-weight:700;font-size:16px;color:#11293D;max-width:500px;line-height:1.6;text-wrap:pretty;text-shadow:0 0 3px #F7F2E8,0 0 3px #F7F2E8,0 0 5px #F7F2E8,0 0 8px #F7F2E8,0 0 11px rgba(247,242,232,.9);">Un socle de compétences techniques et humaines au service de la <em style="color:#C9963A;font-style:normal;font-weight:600;">performance industrielle</em> et de l'excellence opérationnelle.</p>
+      </div>
+      <div style="clip-path:polygon(20px 0,calc(100% - 20px) 0,100% 20px,100% calc(100% - 20px),calc(100% - 20px) 100%,20px 100%,0 calc(100% - 20px),0 20px);outline:2px solid #C9963A;outline-offset:4px;flex-shrink:0;">
+        <img src="assets/photo-antonin.png" alt="Antonin Schweitzer" style="width:130px;height:148px;object-fit:cover;object-position:center 8%;display:block;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px),0 18px);"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN: skills + radar sidebar -->
+  <section style="max-width:1300px;margin:0 auto;padding:0 60px 52px;" class="pad">
+    <div class="maingrid" style="display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;">
+      <!-- LEFT: Skills -->
+      <div>
+        <!-- TECH SKILLS -->
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          <span style="font-size:11px;letter-spacing:.18em;font-weight:700;color:#0C1B2B;text-transform:uppercase;">Compétences Techniques</span>
+          <div style="flex:1;height:1px;background:#D4C9B8;margin-left:4px;"></div>
+        </div>
+        <div class="sk5" style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:32px;">
+          
+          <!-- Qualité -->
+          <div class="sc nb nb-sm" style="background:#fff;padding:18px 14px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.4" style="margin:0 auto 10px;display:block;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.14em;font-weight:700;color:#0C1B2B;margin-bottom:8px;text-transform:uppercase;">QUALITÉ</div>
+            <ul style="list-style:none;text-align:left;margin-bottom:10px;">
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">AMDEC</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Plan de contrôle</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Audit qualité</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">8D / Ishikawa</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;">Actions correctives</li>
+            </ul>
+            <div style="display:flex;gap:3px;justify-content:center;"><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #D4C9B8;"></span></div>
+          </div>
+
+          <!-- Ordonnancement -->
+          <div class="sc nb nb-sm" style="background:#fff;padding:18px 14px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.4" style="margin:0 auto 10px;display:block;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="16" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="8" y2="18"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.14em;font-weight:700;color:#0C1B2B;margin-bottom:8px;text-transform:uppercase;">ORDONNANCEMENT</div>
+            <ul style="list-style:none;text-align:left;margin-bottom:10px;">
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Planification prod.</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Suivi de production</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Kanban / Gantt</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Gestion des flux</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;">Priorisation</li>
+            </ul>
+            <div style="display:flex;gap:3px;justify-content:center;"><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#C9963A;"></span><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #D4C9B8;"></span></div>
+          </div>
+
+          <!-- Lean -->
+          <div class="sc nb nb-sm" style="background:#fff;padding:18px 14px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.4" style="margin:0 auto 10px;display:block;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.14em;font-weight:700;color:#0C1B2B;margin-bottom:8px;text-transform:uppercase;">LEAN / AMC</div>
+            <ul style="list-style:none;text-align:left;margin-bottom:10px;">
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Yellow Belt LSS</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Kaizen / PDCA</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">DMAIC</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">5S</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;">Amélioration continue</li>
+            </ul>
+            <div style="display:flex;gap:3px;justify-content:center;"><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #D4C9B8;"></span></div>
+          </div>
+
+          <!-- Outils num -->
+          <div class="sc nb nb-sm" style="background:#fff;padding:18px 14px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.4" style="margin:0 auto 10px;display:block;"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.14em;font-weight:700;color:#0C1B2B;margin-bottom:8px;text-transform:uppercase;">OUTILS NUM.</div>
+            <ul style="list-style:none;text-align:left;margin-bottom:10px;">
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">SAP</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Calypso</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">iObeya</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Power BI</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;">Visual Basic</li>
+            </ul>
+            <div style="display:flex;gap:3px;justify-content:center;"><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#C9963A;"></span><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #D4C9B8;"></span></div>
+          </div>
+
+          <!-- Supply Chain -->
+          <div class="sc nb nb-sm" style="background:#fff;padding:18px 14px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.4" style="margin:0 auto 10px;display:block;"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.14em;font-weight:700;color:#0C1B2B;margin-bottom:8px;text-transform:uppercase;">SUPPLY CHAIN</div>
+            <ul style="list-style:none;text-align:left;margin-bottom:10px;">
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Flux physiques</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Flux d'information</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Graphe de flux</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;border-bottom:1px solid #F0EAE0;">Cegid / ERP</li>
+              <li style="font-size:11px;color:#0C1B2B;padding:2px 0;">Logistique ind.</li>
+            </ul>
+            <div style="display:flex;gap:3px;justify-content:center;"><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;background:#0C1B2B;"></span><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #D4C9B8;"></span><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #D4C9B8;"></span></div>
+          </div>
+
+        </div>
+
+        <!-- SOFT SKILLS -->
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span style="font-size:11px;letter-spacing:.18em;font-weight:700;color:#0C1B2B;text-transform:uppercase;">Compétences Humaines</span>
+          <div style="flex:1;height:1px;background:#D4C9B8;margin-left:4px;"></div>
+        </div>
+        <div class="sk6" style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px;">
+          <div class="sc nb nb-sm" style="background:#fff;padding:16px 12px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A3A52" stroke-width="1.4" style="margin:0 auto 8px;display:block;"><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.78" y2="4.22"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.12em;font-weight:700;color:#0C1B2B;margin-bottom:5px;text-transform:uppercase;">RIGUEUR</div>
+            <p style="font-size:11px;color:#0C1B2B;line-height:1.4;text-wrap:pretty;">Sens du détail et respect des processus.</p>
+            <div style="width:20px;height:2px;background:#C9963A;margin:8px auto 0;"></div>
+          </div>
+          <div class="sc nb nb-sm" style="background:#fff;padding:16px 12px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A3A52" stroke-width="1.4" style="margin:0 auto 8px;display:block;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.12em;font-weight:700;color:#0C1B2B;margin-bottom:5px;text-transform:uppercase;">AUTONOMIE</div>
+            <p style="font-size:11px;color:#0C1B2B;line-height:1.4;text-wrap:pretty;">Prendre recul et mener les actions seul.</p>
+            <div style="width:20px;height:2px;background:#C9963A;margin:8px auto 0;"></div>
+          </div>
+          <div class="sc nb nb-sm" style="background:#fff;padding:16px 12px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A3A52" stroke-width="1.4" style="margin:0 auto 8px;display:block;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.12em;font-weight:700;color:#0C1B2B;margin-bottom:5px;text-transform:uppercase;">ANALYSE</div>
+            <p style="font-size:11px;color:#0C1B2B;line-height:1.4;text-wrap:pretty;">Identifier causes profondes et solutions adaptées.</p>
+            <div style="width:20px;height:2px;background:#C9963A;margin:8px auto 0;"></div>
+          </div>
+          <div class="sc nb nb-sm" style="background:#fff;padding:16px 12px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A3A52" stroke-width="1.4" style="margin:0 auto 8px;display:block;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.12em;font-weight:700;color:#0C1B2B;margin-bottom:5px;text-transform:uppercase;">COMMUNICATION</div>
+            <p style="font-size:11px;color:#0C1B2B;line-height:1.4;text-wrap:pretty;">Transmettre clairement et créer du lien.</p>
+            <div style="width:20px;height:2px;background:#C9963A;margin:8px auto 0;"></div>
+          </div>
+          <div class="sc nb nb-sm" style="background:#fff;padding:16px 12px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A3A52" stroke-width="1.4" style="margin:0 auto 8px;display:block;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.12em;font-weight:700;color:#0C1B2B;margin-bottom:5px;text-transform:uppercase;">TRAVAIL D'ÉQUIPE</div>
+            <p style="font-size:11px;color:#0C1B2B;line-height:1.4;text-wrap:pretty;">Collaborer et partager pour atteindre les objectifs.</p>
+            <div style="width:20px;height:2px;background:#C9963A;margin:8px auto 0;"></div>
+          </div>
+          <div class="sc nb nb-sm" style="background:#fff;padding:16px 12px;text-align:center;box-shadow:0 1px 6px rgba(12,27,43,.04);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A3A52" stroke-width="1.4" style="margin:0 auto 8px;display:block;"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.12em;font-weight:700;color:#0C1B2B;margin-bottom:5px;text-transform:uppercase;">ADAPTABILITÉ</div>
+            <p style="font-size:11px;color:#0C1B2B;line-height:1.4;text-wrap:pretty;">S'adapter aux changements et évoluer dans la complexité.</p>
+            <div style="width:20px;height:2px;background:#C9963A;margin:8px auto 0;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Radar + CTA -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <!-- Radar chart -->
+        <div class="rc" style="background:#fff;padding:20px 16px;">
+          <div style="font-size:9.5px;letter-spacing:.16em;font-weight:700;color:#0C1B2B;margin-bottom:4px;text-transform:uppercase;text-align:center;">CAP SUR L'EXCELLENCE</div>
+          <div style="width:24px;height:2px;background:#C9963A;margin:0 auto 12px;"></div>
+          <svg width="248" height="220" viewBox="-10 -10 220 220" style="display:block;margin:0 auto;">
+            <g stroke="#D4C9B8" stroke-width="0.8" fill="none">
+              <polygon points="100,10 163,45 163,115 100,150 37,115 37,45"/>
+              <polygon points="100,28 147,55 147,107 100,134 53,107 53,55"/>
+              <polygon points="100,46 131,65 131,99 100,118 69,99 69,65"/>
+              <polygon points="100,64 115,75 115,91 100,102 85,91 85,75"/>
+            </g>
+            <g stroke="#C4B9A8" stroke-width="0.8">
+              <line x1="100" y1="10" x2="100" y2="150"/>
+              <line x1="163" y1="45" x2="37" y2="115"/>
+              <line x1="163" y1="115" x2="37" y2="45"/>
+            </g>
+            <polygon points="100,18 155,50 152,108 100,144 48,110 46,50" fill="#1A3A52" fill-opacity="0.25" stroke="#1A3A52" stroke-width="1.5"/>
+            <circle cx="100" cy="18" r="3" fill="#C9963A"/>
+            <circle cx="155" cy="50" r="3" fill="#C9963A"/>
+            <circle cx="152" cy="108" r="3" fill="#C9963A"/>
+            <circle cx="100" cy="144" r="3" fill="#C9963A"/>
+            <circle cx="48" cy="110" r="3" fill="#C9963A"/>
+            <circle cx="46" cy="50" r="3" fill="#C9963A"/>
+            <text x="100" y="5" text-anchor="middle" font-size="8.5" fill="#0C1B2B" font-family="monospace" font-weight="700">RIGUEUR</text>
+            <text x="174" y="48" text-anchor="start" font-size="7.5" fill="#0C1B2B" font-family="monospace">ANALYSE</text>
+            <text x="172" y="120" text-anchor="start" font-size="7" fill="#0C1B2B" font-family="monospace">ADAPTAB.</text>
+            <text x="100" y="163" text-anchor="middle" font-size="7.5" fill="#0C1B2B" font-family="monospace">COLLAB.</text>
+            <text x="28" y="120" text-anchor="end" font-size="7" fill="#0C1B2B" font-family="monospace">COMMUN.</text>
+            <text x="26" y="48" text-anchor="end" font-size="7.5" fill="#0C1B2B" font-family="monospace">AUTONOMIE</text>
+          </svg>
+          <p style="font-size:11.5px;color:#0C1B2B;line-height:1.5;text-align:center;margin-top:8px;text-wrap:pretty;">Une approche équilibrée entre maîtrise technique et intelligence relationnelle.</p>
+        </div>
+        <!-- CTA dark card -->
+        <div style="background:#1A3A52;padding:20px;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <div style="font-size:9.5px;letter-spacing:.14em;font-weight:700;color:#C9963A;text-transform:uppercase;">CERTIFICATIONS</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="padding:8px 10px;background:rgba(255,255,255,.06);border-left:2px solid #C9963A;">
+              <div style="font-size:11px;font-weight:700;color:#fff;">Yellow Belt Lean Six Sigma</div>
+              <div style="font-size:10px;color:#7AACCF;margin-top:2px;">Certification obtenue</div>
+            </div>
+            <div style="padding:8px 10px;background:rgba(255,255,255,.06);border-left:2px solid #C9963A;">
+              <div style="font-size:11px;font-weight:700;color:#fff;">Cambridge English B2</div>
+              <div style="font-size:10px;color:#7AACCF;margin-top:2px;">Certificate in English</div>
+            </div>
+          </div>
+          <a href="#carte-modal" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#C9963A;color:#fff;padding:11px 16px;font-size:10.5px;letter-spacing:.12em;font-weight:700;margin-top:14px;transition:background .2s;">VOIR LA FICHE COMPÉTENCES →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER QUOTE -->
+  <div style="background:#0C1B2B;padding:20px 60px;border-top:1px solid rgba(255,255,255,.08);">
+    <div style="max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:#7AACCF;max-width:600px;line-height:1.5;text-wrap:pretty;">"La maîtrise des flux et des outils ne vaut que si elle sert l'humain, la qualité et la performance durable."</p>
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:#0C1B2B;">Antonin Schweitzer</div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX: carte de compétences (image) -->
+  <div id="carte-modal" style="position:fixed;inset:0;z-index:9000;background:rgba(8,18,30,.94);align-items:center;justify-content:center;padding:28px;">
+    <a href="#" aria-label="Fermer" style="position:absolute;inset:0;"></a>
+    <div style="position:relative;max-width:1180px;width:100%;max-height:94vh;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="display:flex;align-items:center;gap:9px;"><svg width="15" height="17" viewBox="0 0 18 20" fill="none"><path d="M9 1 L16.5 5 L16.5 15 L9 19 L1.5 15 L1.5 5 Z" stroke="#C9963A" stroke-width="1.2"/><circle cx="9" cy="6.5" r="1.8" stroke="#C9963A" stroke-width="1"/><line x1="9" y1="8.3" x2="9" y2="14" stroke="#C9963A" stroke-width="1"/><line x1="6" y1="10" x2="12" y2="10" stroke="#C9963A" stroke-width="1"/></svg><span style="font-size:11px;letter-spacing:.2em;font-weight:700;color:#C9963A;text-transform:uppercase;">Fiche compétences — Antonin Schweitzer</span></div>
+        <a href="#" style="display:flex;align-items:center;gap:7px;border:1.5px solid rgba(201,150,58,.6);color:#fff;padding:7px 15px;font-size:10px;letter-spacing:.14em;font-weight:700;">FERMER ✕</a>
+      </div>
+      <img src="assets/carte-competences.png" alt="Carte de compétences d'Antonin Schweitzer" style="width:100%;max-height:84vh;object-fit:contain;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6);background:#efe7d6;"/>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#0C1B2B;padding:15px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.06);">
+  <div style="display:flex;align-items:center;gap:9px;"><svg width="17" height="19" viewBox="0 0 18 20" fill="none"><circle cx="9" cy="5.5" r="2.5" stroke="#C9963A" stroke-width="1.1" fill="none"/><line x1="9" y1="8" x2="9" y2="16.5" stroke="#C9963A" stroke-width="1.1"/><line x1="5" y1="10.5" x2="13" y2="10.5" stroke="#C9963A" stroke-width="1.1"/><path d="M5 16.5 Q9 18.5 13 16.5" stroke="#C9963A" stroke-width="1.1" fill="none"/></svg><span style="font-size:9.5px;letter-spacing:.2em;color:#9DAFBE;font-weight:600;">CAP SUR L'AVENIR</span></div>
+  <span style="font-family:monospace;font-size:9.5px;letter-spacing:.06em;color:#4A6C7F;">47° 13' 25" N · 01° 33' 57" O</span>
+  <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="#4A6C7F" stroke-width="0.7"/><polygon points="11,2.5 10,9 11,8 12,9" fill="#9DAFBE"/><polygon points="11,19.5 10,13 11,14 12,13" fill="#4A5C6A"/><polygon points="2.5,11 9,10 8,11 9,12" fill="#4A5C6A"/><polygon points="19.5,11 13,10 14,11 13,12" fill="#4A5C6A"/><text x="11" y="5.5" font-size="3.5" text-anchor="middle" fill="#9DAFBE" font-family="monospace">N</text></svg>
+  <span style="font-size:9.5px;letter-spacing:.15em;color:#9DAFBE;font-weight:600;">NANTES</span>
+  <span style="font-size:9.5px;letter-spacing:.08em;color:#4A6C7F;">RIGUEUR · ENGAGEMENT · COLLABORATION</span>
+  <span style="font-size:11px;font-weight:700;color:#C9963A;font-family:'Playfair Display',serif;">2026</span>
+</footer>
+
+</x-dc>
+</body>
+</html>

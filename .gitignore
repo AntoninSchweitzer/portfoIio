@@ -1,0 +1,5 @@
+# Fichiers de travail à ne pas publier
+uploads/
+.thumbnail
+screenshots/
+*.zip
