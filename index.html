@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="transition.js"></script>
+  <title>Accueil — Antonin Schweitzer · Portfolio</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html,body{overflow-x:hidden;}
+    body{font-family:'Source Sans 3',sans-serif;background:linear-gradient(rgba(248,245,240,.6),rgba(248,245,240,.6)),url('assets/naval-bg.png') center top/cover fixed no-repeat,#F8F5F0;color:#0C1B2B;-webkit-font-smoothing:antialiased;}
+    a{text-decoration:none;color:inherit;}
+    .nl{color:#9DAFBE;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
+    .nl:hover,.nl.active{color:#fff;border-bottom-color:#C9963A;}
+    .ch{transition:transform .25s,box-shadow .25s;}
+    .ch:hover{transform:translateY(-4px);}
+    .bpn:hover{background:#1A3A52 !important;}
+    .bpo:hover{background:#0C1B2B !important;color:#fff !important;}
+    @media(max-width:960px){.nc{display:none !important;}.hg{grid-template-columns:1fr !important;}.pc{display:none !important;}.fg{grid-template-columns:1fr !important;}.hn{font-size:52px !important;}}
+    @media(max-width:600px){.pad{padding:50px 24px 40px !important;}.fpad{padding:0 24px !important;}}
+  </style>
+</helmet>
+
+<!-- NAV -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:200;background:#0C1B2B;height:64px;display:flex;align-items:center;padding:0 40px;gap:0;">
+  <a href="index.html" style="display:flex;align-items:center;gap:13px;flex-shrink:0;">
+    <svg width="36" height="42" viewBox="0 0 36 42" fill="none"><path d="M18 1 L33.5 10 L33.5 32 L18 41 L2.5 32 L2.5 10 Z" stroke="#C9963A" stroke-width="1.4" fill="none"/><circle cx="18" cy="13.5" r="3.2" stroke="#C9963A" stroke-width="1.1" fill="none"/><line x1="18" y1="16.7" x2="18" y2="29.5" stroke="#C9963A" stroke-width="1.1"/><line x1="12.5" y1="20" x2="23.5" y2="20" stroke="#C9963A" stroke-width="1.1"/><path d="M12.5 29.5 Q18 32.5 23.5 29.5" stroke="#C9963A" stroke-width="1.1" fill="none"/><path d="M12.5 29.5 L10.5 27" stroke="#C9963A" stroke-width="1.1"/><path d="M23.5 29.5 L25.5 27" stroke="#C9963A" stroke-width="1.1"/></svg>
+    <div><div style="font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:14px;letter-spacing:.05em;line-height:1.2;">ANTONIN SCHWEITZER</div><div style="color:#C9963A;font-size:8.5px;letter-spacing:.25em;font-weight:600;line-height:1;">PORTFOLIO</div></div>
+  </a>
+  <div class="nc" style="display:flex;align-items:center;gap:15px;margin:0 auto;">
+    <a href="index.html" class="nl active">ACCUEIL</a>
+    <a href="apropos.dc.html" class="nl">À PROPOS</a>
+    <a href="experiences.dc.html" class="nl">EXPÉRIENCES &amp; PROJETS</a>
+    <a href="competences.dc.html" class="nl">COMPÉTENCES</a>
+    <a href="parcours.dc.html" class="nl">PARCOURS</a>
+    <a href="contact.dc.html" class="nl">CONTACT</a>
+  </div>
+  <a href="cv.dc.html" style="display:flex;align-items:center;gap:7px;border:1.5px solid #C9963A;color:#fff;padding:8px 18px;font-size:10.5px;letter-spacing:.18em;font-weight:700;margin-left:auto;flex-shrink:0;transition:background .2s;">CV <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+</nav>
+
+<!-- HERO -->
+<section style="min-height:100vh;padding-top:64px;background:transparent;position:relative;overflow:hidden;">
+  <!-- Topographic background -->
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1400 800" fill="none">
+    <g stroke="#0C1B2B" stroke-width="0.55" opacity="0.035">
+      <path d="M-200,165 C50,135 250,188 550,143 C850,98 1100,162 1600,122"/><path d="M-200,215 C50,185 250,238 550,193 C850,148 1100,212 1600,172"/><path d="M-200,265 C50,235 250,288 550,243 C850,198 1100,262 1600,222"/><path d="M-200,315 C50,285 250,338 550,293 C850,248 1100,312 1600,272"/><path d="M-200,365 C50,335 250,388 550,343 C850,298 1100,362 1600,322"/><path d="M-200,415 C50,385 250,438 550,393 C850,348 1100,412 1600,372"/><path d="M-200,465 C50,435 250,488 550,443 C850,398 1100,462 1600,422"/><path d="M-200,515 C50,485 250,538 550,493 C850,448 1100,512 1600,472"/><path d="M-200,565 C50,535 250,588 550,543 C850,498 1100,562 1600,522"/><path d="M-200,615 C50,585 250,638 550,593 C850,548 1100,612 1600,572"/><path d="M-200,665 C50,635 250,688 550,643 C850,598 1100,662 1600,622"/><path d="M-200,715 C50,685 250,738 550,693 C850,648 1100,712 1600,672"/>
+    </g>
+    <g fill="#0C1B2B" opacity="0.055" font-family="monospace" font-size="8">
+      <text x="30" y="168">10</text><text x="30" y="218">20</text><text x="30" y="268">30</text><text x="30" y="318">40</text><text x="30" y="368">50</text><text x="30" y="418">60</text>
+    </g>
+  </svg>
+
+  <div class="hg pad" style="max-width:1300px;margin:0 auto;padding:68px 60px 56px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;min-height:calc(100vh - 64px);">
+    <!-- LEFT -->
+    <div style="position:relative;z-index:2;">
+      <div style="position:absolute;left:-32px;top:16px;display:flex;flex-direction:column;align-items:center;gap:7px;opacity:0.3;">
+        <span style="font-family:monospace;font-size:10px;font-weight:700;color:#0C1B2B;">N</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#0C1B2B" stroke-width="0.8"/><line x1="10" y1="1.5" x2="10" y2="18.5" stroke="#0C1B2B" stroke-width="0.8"/><line x1="1.5" y1="10" x2="18.5" y2="10" stroke="#0C1B2B" stroke-width="0.8"/><circle cx="10" cy="10" r="2.2" fill="#0C1B2B"/></svg>
+        <div style="font-family:monospace;font-size:7px;color:#0C1B2B;text-align:center;line-height:1.8;">47° 13' 25" N<br/>01° 33' 57" O</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px;">
+        <span style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#C9963A;font-weight:600;">ÉTUDIANT BUT QLIO</span>
+        <div style="height:1px;width:44px;background:#C9963A;"></div>
+      </div>
+      <h1 class="hn" style="font-family:'Playfair Display',serif;font-weight:700;font-size:74px;line-height:1.0;color:#0C1B2B;letter-spacing:-.01em;">Antonin<br/>Schweitzer</h1>
+      <div style="width:52px;height:3px;background:#C9963A;margin:20px 0;"></div>
+      <p style="font-weight:700;font-size:16px;line-height:1.65;color:#11293D;max-width:440px;text-wrap:pretty;text-shadow:0 0 3px #F7F2E8,0 0 3px #F7F2E8,0 0 5px #F7F2E8,0 0 8px #F7F2E8,0 0 11px rgba(247,242,232,.9);">Passionné par le <strong style="color:#0C1B2B;font-weight:700;">secteur naval</strong> et l'excellence industrielle. Je m'oriente vers l'ordonnancement, la qualité industrielle et la supply chain pour contribuer à des projets performants et durables.</p>
+      <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;">
+        <a href="apropos.dc.html" class="bpn" style="background:#0C1B2B;color:#fff;display:inline-flex;align-items:center;gap:9px;padding:14px 26px;font-size:11px;letter-spacing:.14em;font-weight:700;transition:background .2s;">
+          <svg width="15" height="15" viewBox="0 0 18 20" fill="none"><circle cx="9" cy="5.5" r="2.5" stroke="#C9963A" stroke-width="1.1" fill="none"/><line x1="9" y1="8" x2="9" y2="16.5" stroke="#C9963A" stroke-width="1.1"/><line x1="5" y1="10.5" x2="13" y2="10.5" stroke="#C9963A" stroke-width="1.1"/><path d="M5 16.5 Q9 18.5 13 16.5" stroke="#C9963A" stroke-width="1.1" fill="none"/></svg>
+          DÉCOUVRIR LE PROFIL
+        </a>
+        <a href="cv.dc.html" class="bpo" style="border:1.5px solid #0C1B2B;color:#0C1B2B;display:inline-flex;align-items:center;gap:9px;padding:14px 26px;font-size:11px;letter-spacing:.14em;font-weight:700;transition:all .2s;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          TÉLÉCHARGER LE CV
+        </a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;">
+        <span style="background:rgba(12,27,43,.06);border:1px solid rgba(12,27,43,.12);padding:4px 12px;font-size:10.5px;font-weight:600;letter-spacing:.05em;color:#0C1B2B;">BUT QLIO 2024–2027</span>
+        <span style="background:rgba(12,27,43,.06);border:1px solid rgba(12,27,43,.12);padding:4px 12px;font-size:10.5px;font-weight:600;letter-spacing:.05em;color:#0C1B2B;">Chantiers de l'Atlantique</span>
+        <span style="background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.3);padding:4px 12px;font-size:10.5px;font-weight:600;letter-spacing:.05em;color:#8A6520;">Yellow Belt Lean Six Sigma</span>
+        <span style="background:rgba(12,27,43,.06);border:1px solid rgba(12,27,43,.12);padding:4px 12px;font-size:10.5px;font-weight:600;letter-spacing:.05em;color:#0C1B2B;">Anglais B2 Cambridge</span>
+        <span style="background:rgba(12,27,43,.06);border:1px solid rgba(12,27,43,.12);padding:4px 12px;font-size:10.5px;font-weight:600;letter-spacing:.05em;color:#0C1B2B;">SAP · Calypso · iObeya</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Photo -->
+    <div class="pc" style="position:relative;z-index:1;">
+      <svg style="position:absolute;right:-40px;top:-24px;opacity:0.06;pointer-events:none;" width="500" height="300" viewBox="0 0 520 310" fill="none"><g stroke="#0C1B2B" stroke-width="0.85"><path d="M48 235 Q155 214 260 208 Q365 214 472 235 L490 258 Q260 280 30 258 Z"/><rect x="168" y="170" width="184" height="40"/><rect x="192" y="136" width="136" height="36"/><rect x="216" y="106" width="88" height="32"/><line x1="260" y1="106" x2="260" y2="30"/><line x1="260" y1="58" x2="218" y2="70"/><line x1="260" y1="58" x2="302" y2="70"/><path d="M472 235 L498 214 L508 195 L490 172 L460 164"/><path d="M48 235 L22 214 L12 195 L30 172 L60 164"/><line x1="48" y1="252" x2="16" y2="252"/><ellipse cx="16" cy="252" rx="12" ry="18"/><line x1="150" y1="170" x2="150" y2="92"/><line x1="150" y1="98" x2="190" y2="86"/><line x1="190" y1="86" x2="190" y2="170"/><rect x="312" y="118" width="26" height="50"/><circle cx="106" cy="224" r="5"/><circle cx="138" cy="221" r="5"/><circle cx="170" cy="219" r="5"/><circle cx="358" cy="219" r="5"/><circle cx="390" cy="221" r="5"/><circle cx="422" cy="224" r="5"/><line x1="30" y1="258" x2="490" y2="258" stroke-dasharray="9,5"/><line x1="148" y1="172" x2="148" y2="268" stroke-dasharray="2,6" opacity="0.5"/><line x1="260" y1="172" x2="260" y2="268" stroke-dasharray="2,6" opacity="0.5"/><line x1="372" y1="172" x2="372" y2="268" stroke-dasharray="2,6" opacity="0.5"/><line x1="48" y1="295" x2="472" y2="295" stroke-dasharray="5,5"/><line x1="48" y1="291" x2="48" y2="299"/><line x1="472" y1="291" x2="472" y2="299"/><text x="260" y="307" font-size="7.5" text-anchor="middle" font-family="monospace">L.O.A. 265.0 m</text></g></svg>
+      <div style="position:relative;z-index:2;display:inline-block;">
+        <img src="assets/photo-antonin.png" alt="Antonin Schweitzer" style="width:100%;max-width:340px;height:392px;object-fit:cover;object-position:center 8%;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);display:block;"/>
+        <div style="position:absolute;bottom:0;right:0;background:#1A3A52;padding:20px 24px;min-width:155px;">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span style="font-size:9.5px;letter-spacing:.15em;font-weight:700;color:#fff;">NANTES</span></div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:11px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg><span style="font-size:9.5px;letter-spacing:.15em;font-weight:700;color:#fff;">BUT QLIO</span></div>
+          <div><div style="font-size:8.5px;letter-spacing:.15em;color:#7AACCF;">DIPLÔMÉ EN</div><div style="font-size:28px;font-family:'Playfair Display',serif;font-weight:700;color:#fff;line-height:1.1;">2027</div></div>
+        </div>
+      </div>
+      <div style="position:absolute;top:-12px;right:-12px;z-index:3;">
+        <svg width="104" height="104" viewBox="0 0 104 104">
+          <defs><path id="cp0" d="M 52,52 m -39,0 a 39,39 0 1,1 78,0 a 39,39 0 1,1 -78,0"/></defs>
+          <circle cx="52" cy="52" r="50" fill="#F8F5F0" stroke="#0C1B2B" stroke-width="1"/>
+          <circle cx="52" cy="52" r="42" fill="none" stroke="#C9963A" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="52" cy="43" r="4" stroke="#0C1B2B" stroke-width="1.1" fill="none"/>
+          <line x1="52" y1="47" x2="52" y2="60" stroke="#0C1B2B" stroke-width="1.1"/>
+          <line x1="46.5" y1="51" x2="57.5" y2="51" stroke="#0C1B2B" stroke-width="1.1"/>
+          <path d="M46.5 60 Q52 63 57.5 60" stroke="#0C1B2B" stroke-width="1.1" fill="none"/>
+          <path d="M46.5 60 L44.5 57.5" stroke="#0C1B2B" stroke-width="1.1"/>
+          <path d="M57.5 60 L59.5 57.5" stroke="#0C1B2B" stroke-width="1.1"/>
+          <text font-size="8" font-family="monospace" letter-spacing="2.5" fill="#0C1B2B" font-weight="600"><textPath href="#cp0">EXIGENCE · FIABILITÉ · PERFORMANCE ·</textPath></text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE CARDS -->
+<section style="background:#F4EFE5;border-top:1px solid #E0D8CE;">
+  <div class="fpad" style="max-width:1300px;margin:0 auto;padding:0 60px;">
+    <div class="fg" style="display:grid;grid-template-columns:repeat(3,1fr);">
+      <a href="experiences.dc.html" class="ch" style="display:flex;align-items:flex-start;gap:18px;padding:34px 32px;border-right:1px solid #D4C9B8;">
+        <div style="width:48px;height:48px;border:1.5px solid #C9963A;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.6"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+        <div><div style="font-size:10.5px;letter-spacing:.2em;font-weight:700;color:#0C1B2B;margin-bottom:7px;">EXPÉRIENCES</div><p style="font-size:13.5px;line-height:1.55;color:#0C1B2B;margin-bottom:12px;text-wrap:pretty;">Des expériences terrain en qualité, Lean et amélioration continue au service de la performance industrielle.</p><span style="font-size:10.5px;letter-spacing:.1em;font-weight:700;color:#C9963A;">VOIR LES EXPÉRIENCES →</span></div>
+      </a>
+      <a href="competences.dc.html" class="ch" style="display:flex;align-items:flex-start;gap:18px;padding:34px 32px;border-right:1px solid #D4C9B8;">
+        <div style="width:48px;height:48px;border:1.5px solid #C9963A;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div><div style="font-size:10.5px;letter-spacing:.2em;font-weight:700;color:#0C1B2B;margin-bottom:7px;">COMPÉTENCES</div><p style="font-size:13.5px;line-height:1.55;color:#0C1B2B;margin-bottom:12px;text-wrap:pretty;">Organisation, qualité, supply chain, outils numériques et travail collaboratif pour piloter des projets complexes.</p><span style="font-size:10.5px;letter-spacing:.1em;font-weight:700;color:#C9963A;">DÉCOUVRIR MES COMPÉTENCES →</span></div>
+      </a>
+      <a href="experiences.dc.html" class="ch" style="display:flex;align-items:flex-start;gap:18px;padding:34px 32px;">
+        <div style="width:48px;height:48px;border:1.5px solid #C9963A;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#C9963A" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div><div style="font-size:10.5px;letter-spacing:.2em;font-weight:700;color:#0C1B2B;margin-bottom:7px;">PROJETS</div><p style="font-size:13.5px;line-height:1.55;color:#0C1B2B;margin-bottom:12px;text-wrap:pretty;">Projets autour du naval, de l'ordonnancement et de l'optimisation des flux industriels.</p><span style="font-size:10.5px;letter-spacing:.1em;font-weight:700;color:#C9963A;">VOIR LES PROJETS →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0C1B2B;padding:15px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+  <div style="display:flex;align-items:center;gap:9px;"><svg width="17" height="19" viewBox="0 0 18 20" fill="none"><circle cx="9" cy="5.5" r="2.5" stroke="#C9963A" stroke-width="1.1" fill="none"/><line x1="9" y1="8" x2="9" y2="16.5" stroke="#C9963A" stroke-width="1.1"/><line x1="5" y1="10.5" x2="13" y2="10.5" stroke="#C9963A" stroke-width="1.1"/><path d="M5 16.5 Q9 18.5 13 16.5" stroke="#C9963A" stroke-width="1.1" fill="none"/></svg><span style="font-size:9.5px;letter-spacing:.2em;color:#9DAFBE;font-weight:600;">CAP SUR L'AVENIR</span></div>
+  <span style="font-family:monospace;font-size:9.5px;letter-spacing:.06em;color:#4A6C7F;">47° 13' 25" N · 01° 33' 57" O</span>
+  <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="#4A6C7F" stroke-width="0.7"/><polygon points="11,2.5 10,9 11,8 12,9" fill="#9DAFBE"/><polygon points="11,19.5 10,13 11,14 12,13" fill="#4A5C6A"/><polygon points="2.5,11 9,10 8,11 9,12" fill="#4A5C6A"/><polygon points="19.5,11 13,10 14,11 13,12" fill="#4A5C6A"/><text x="11" y="5.5" font-size="3.5" text-anchor="middle" fill="#9DAFBE" font-family="monospace">N</text></svg>
+  <span style="font-size:9.5px;letter-spacing:.15em;color:#9DAFBE;font-weight:600;">NANTES</span>
+  <span style="font-size:9.5px;letter-spacing:.08em;color:#4A6C7F;">RIGUEUR · ENGAGEMENT · COLLABORATION</span>
+  <span style="font-size:11px;font-weight:700;color:#C9963A;font-family:'Playfair Display',serif;">2026</span>
+</footer>
+
+</x-dc>
+</body>
+</html>
